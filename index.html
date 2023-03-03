@@ -1,63 +1,281 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page SCC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <title>My Portfolio Project</title>
 
     <style>
         * {
-    font-family: 'Shantell Sans', cursive;
-}
-.mycontainer {
-    color: white;
-    width: 300px;
-    height: 200px;
-
-    background-image: url('data:image/jpeg;base64,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');
-    background-position: center;
-    background-size: cover;
-
-    border-radius: 10px;
-
-    text-align: center;
-    padding-top: 40px;
-}
-
-.wrap {
-    margin: auto;
-    width: 300px;
-}
-
-.mybtn {
-    width: 300px;
-    height: 50px;
-    background-color: brown;
-    color: white;
-    border-radius: 10px;
-    
-}
+            font-family: 'Lora', serif;
+        }
     </style>
-   
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="mycontainer">
-            <h1>Login Page</h1>
-            <h5>Type your ID and PW</h5>
-        </div>
-        <p>ID: <input type="text" /></p>
-        <p>Pw: <input type="text" /></p>
-        <button class="mybtn">Login</button>
-    </div>
+    <!-- Start Navbar -->
+    <section id="navbar">
+        <div class="container-fluid" style="background-color: #cbc1d1;">
+            <div class="container">
+                <header class="d-flex flex-wrap justify-content-center py-3 mb-0 border-bottom">
+                    <a href="/"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                        <span class="fs-4" style="font-weight: bold; color:black;">My Portfolio</span>
+                    </a>
 
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a href="#" class="nav-link" style="color: #610c9a;">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" style="color: #610c9a;">About</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" style="color: #610c9a;">My Project</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" style="color: #610c9a;">Contact</a></li>
+                    </ul>
+                </header>
+            </div>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#d5cdda" fill-opacity="1"
+            d="M0,192L34.3,176C68.6,160,137,128,206,122.7C274.3,117,343,139,411,138.7C480,139,549,117,617,96C685.7,75,754,53,823,74.7C891.4,96,960,160,1029,170.7C1097.1,181,1166,139,1234,117.3C1302.9,96,1371,96,1406,96L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+        </path>
+    </svg>
+    <!-- End Navbar -->
+
+    <!-- Start Home -->
+    <section id="home">
+        <div class="container-fluid" style="background-color: #d5cdda;">
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img style="border-radius: 100px;" src="DSCF3577_2.JPG" class="d-block mx-lg-auto img-fluid"
+                            alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold lh-1 mb-3">Kusuma Wanti Zahra</h1>
+                        <p class="lead">"Kebahagiaan adalah seperti seekor kupu-kupu yang, ketika dikejar, selalu luput,
+                            tapi jika kamu mau duduk tenang, kupu-kupu itu malah akan hinggap di atas pundakmu"
+
+                            - Nathaniel Hawthome
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Home -->
+
+    <!-- Start About -->
+    <section id="About">
+        <div class="container-fluid" style="background-color: white;">
+            <div class="px-4 py-5 my-5 text-center" style="background-color: white;">
+                <h1 class="display-5 fw-bold">About Me</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">
+                    <p>Halo!🙌😊 Saya Mahasiswa semester 6 jurusan Manajemen dengan konsentrasi manajemen sumber
+                        daya
+                        manusia
+                        Univeritas Negeri Semarang.
+                        Saya memiliki ketertarikan di bidang adminitrasi, human resource dan IT.
+                        Salam Kenal, Great To See you!💕🤗</p>
+                </div>
+            </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#d5cdda" fill-opacity="1"
+                d="M0,192L34.3,176C68.6,160,137,128,206,122.7C274.3,117,343,139,411,138.7C480,139,549,117,617,96C685.7,75,754,53,823,74.7C891.4,96,960,160,1029,170.7C1097.1,181,1166,139,1234,117.3C1302.9,96,1371,96,1406,96L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+
+    <!-- End About -->
+
+    <!-- Start My Project -->
+    <section id="My Project">
+        <div class="container-fluid" style="background-color: #d5cdda;">
+            <div class="container px-4 py-5" style="background-color: #d5cdda;">
+                <h2 class="pb-2  fw-bold border-bottom">Project</h2>
+
+                <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+                    <div class="col d-flex flex-column align-items-start gap-2">
+                        <div class="col-10 col-sm-8 col-lg-6">
+                            <img style="border-radius: 500px;" src="DSCF3578_2.JPG" class="d-block mx-lg-auto img-fluid"
+                                alt="Bootstrap Themes" width="800" height="600" loading="lazy">
+                        </div>
+                        <h3 class="fw-bold">My Experience</h3>
+                        <p class="text-muted">Pengalaman adalah guru terbaik, kegiatan untuk mencari pengalaman dan
+                            ilmu
+                            banyak saya lakukan baik melalui organisasi maupun pelatihan</p>
+                    </div>
+
+                    <div class="col">
+                        <div class="row row-cols-1 row-cols-sm-2 g-4">
+                            <div class="col d-flex flex-column gap-2">
+                                <div
+                                    class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                                    <svg class="bi" width="1em" height="1em">
+                                        <use xlink:href="#collection"></use>
+                                    </svg>
+                                </div>
+                                <h4 class="fw-bold mb-0">SEKOLAH KADER BANGSA BEM KM UNNES</h4>
+                                <p class="text-muted">Menjadi Sekretaris Biro MPS yang bertanggung jawab untuk
+                                    mengelola
+                                    administrasi dan membuat konsep kegiatan yang menyenangkan untuk mendekatkan
+                                    para
+                                    siswa.
+                                    serta kegiatan SKB mengabdi dan SKB mengajar yang menjadikan saya mendapatkan
+                                    pengalaman untuk berinteraksi dan melakukan pendekatan dengan masyarakat secara
+                                    langsung.
+                                </p>
+                            </div>
+
+                            <div class="col d-flex flex-column gap-2">
+                                <div
+                                    class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                                    <svg class="bi" width="1em" height="1em">
+                                        <use xlink:href="#gear-fill"></use>
+                                    </svg>
+                                </div>
+                                <h4 class="fw-bold mb-0">HUMAN RESOURCE CLUB FE UNNES</h4>
+                                <p class="text-muted">Menjadi Ketua Human Resource Club Periode 2023 saya
+                                    bertanggung
+                                    jawab memimpin dan membimbing seluruh anggota kepengurusan selama satu periode
+                                    kedepan.
+                                    HRC merupakan organisasi dibawah naungan Himpunan Mahasiswa Jurusan Manajemen
+                                    (HIMA)
+                                    sejak 2015 dan berfokus pada pemberian edukasi mengenai bidang ilmu sumber daya
+                                    manusia.
+                                </p>
+                            </div>
+
+                            <div class="col d-flex flex-column gap-2">
+                                <div
+                                    class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                                    <svg class="bi" width="1em" height="1em">
+                                        <use xlink:href="#speedometer"></use>
+                                    </svg>
+                                </div>
+                                <h4 class="fw-bold mb-0">KISS DANCE CREW</h4>
+                                <p class="text-muted">Menjadi staff departemen Infokom yang bertanggung jawab
+                                    mengelola
+                                    bagian desain dan sosial media dengan membuat konten yang interaktif
+                                    KISS Dance Crew merupakan UKM yang mewadahi mahasiswa untuk menyalurkan di
+                                    bidang
+                                    seni melalui bakat menari modern dan kontemporer.
+                                </p>
+                            </div>
+
+                            <div class="col d-flex flex-column gap-2">
+                                <div
+                                    class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                                    <svg class="bi" width="1em" height="1em">
+                                        <use xlink:href="#table"></use>
+                                    </svg>
+                                </div>
+                                <h4 class="fw-bold mb-0"> PELATIHAN MySkill</h4>
+                                <p class="text-muted">Saya mengikuti program pelatihan gratis yang diadakan oleh
+                                    MySkill
+                                    di bidang Data Analyst. Saya juga mengikuti pelatihan Google Workspace untuk
+                                    mendapatkan ilmu mengenai microsoft,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#d5cdda" fill-opacity="1"
+            d="M0,224L34.3,229.3C68.6,235,137,245,206,234.7C274.3,224,343,192,411,154.7C480,117,549,75,617,58.7C685.7,43,754,53,823,96C891.4,139,960,213,1029,202.7C1097.1,192,1166,96,1234,90.7C1302.9,85,1371,171,1406,213.3L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+        </path>
+    </svg>
+    <!-- End My Project -->
+
+    <!-- Start Contact Me -->
+    <section id="Contact Me">
+        <section class="bg-light">
+            <div class="container-fluid" style="background-color: #d5cdda;">
+                <h2 class="text-center fw-bold mb-5">Contact Me</h2>
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- End Contact Me -->
+
+    <!-- Start Footer  -->
+    <section id="Footer">
+        <footer class="text-center text-white" style="background-color: #d5cdda;">
+            <!-- Grid container -->
+            <div class="container pt-4">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+                    <!-- Google -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+                    <!-- Linkedin -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+                    <!-- Github -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                        data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+    </section>
 </body>
 
 </html>
